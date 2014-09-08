@@ -275,4 +275,7 @@ set gfn=Meslo\ LG\ M\ Regular:h12
 command! Eroutes :e config/routes.rb
 command! Eschema :e db/schema.rb
 
+" Show line numbers
+set number
+
 NeoBundleCheck
