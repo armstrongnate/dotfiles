@@ -14,7 +14,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
 NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'unix' : 'make -f make_unix.mak' } }
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'matchit.zip'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'tommcdo/vim-exchange'
@@ -96,7 +95,7 @@ set expandtab
 " Colors
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night
 set t_Co=256
 
 " Color Customizations
