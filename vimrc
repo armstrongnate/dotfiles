@@ -278,4 +278,8 @@ command! Eschema :e db/schema.rb
 " Show line numbers
 set number
 
+" Hide scrollbars
+set guioptions-=L
+set guioptions-=r
+
 NeoBundleCheck
