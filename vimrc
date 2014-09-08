@@ -282,4 +282,7 @@ set number
 set guioptions-=L
 set guioptions-=r
 
+" Full window
+set lines=999 columns=9999
+
 NeoBundleCheck
