@@ -96,6 +96,7 @@ set expandtab
 syntax enable
 set background=dark
 colorscheme Tomorrow-Night
+set linespace=1
 set t_Co=256
 
 " Color Customizations
@@ -262,5 +263,11 @@ endif
 
 " Turn on syntax completion.
 set completefunc=syntaxcomplete#Complete
+
+" Configure panel navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 NeoBundleCheck
