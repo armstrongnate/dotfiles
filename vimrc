@@ -53,6 +53,10 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 
+" NERDTree
+NeoBundle 'scrooloose/nerdtree'
+nnoremap <C-O> :NERDTreeToggle <CR>
+
 " Linux never crashes. :)
 set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
