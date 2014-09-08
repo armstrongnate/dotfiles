@@ -285,4 +285,7 @@ set guioptions-=r
 " Full window
 set lines=999 columns=9999
 
+" 0 goes to beginning of line where text begins
+map 0 ^
+
 NeoBundleCheck
