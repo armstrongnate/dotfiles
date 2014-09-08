@@ -13,7 +13,6 @@ let g:neobundle#types#git#default_protocol = 'git'
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " General
-NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'unix' : 'make -f make_unix.mak' } }
 NeoBundle 'matchit.zip'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'tommcdo/vim-exchange'
@@ -269,5 +268,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Font
+set gfn=Meslo\ LG\ M\ Regular:h12
 
 NeoBundleCheck
