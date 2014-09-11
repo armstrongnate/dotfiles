@@ -1,0 +1,11 @@
+" Copy to the end of the line (https://github.com/tpope/tpope/blob/master/.vimrc)
+nnoremap Y y$
+
+" Use motion commands to leave insert mode
+" http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
+imap jk <esc>
+imap jj <esc>j
+imap kk <esc>k
+
+" 0 goes to beginning of line where text begins
+map 0 ^
