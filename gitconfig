@@ -1,18 +1,15 @@
 [user]
-        name = Nate Armstrong
-        email = natearmstrong2@gmail.com
+  name = Nate Armstrong
+  email = natearmstrong2@gmail.com
+[filter "media"]
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
+[push]
+  default = simple
 [color]
   ui = auto
-  [color "status"]
-    added = cyan
-    changed = green
-    untracked = red
-[push]
-        default = simple
-[core]
-        editor = vi
-        excludesfile = /Users/nate/.gitignore
-        pager = less -r
-[filter "media"]
-        clean = git-media-clean %f
-        smudge = git-media-smudge %f
+[color "status"]
+  added = cyan
+  changed = green
+  untracked = red
