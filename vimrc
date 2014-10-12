@@ -55,6 +55,10 @@ NeoBundle 'Shougo/unite.vim'
 
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
+
+call neobundle#end()
+
+" Toggle NERDTree
 nnoremap <C-O> :NERDTreeToggle <CR>
 
 " Linux never crashes. :)
