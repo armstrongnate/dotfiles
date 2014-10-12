@@ -5,7 +5,7 @@ if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Configure NeoBundle
 let g:neobundle#types#git#default_protocol = 'git'
@@ -161,9 +161,6 @@ imap kk <esc>k
 " Abbreviations
 ab pa params
 
-" Open [a]ny file with Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>a :<C-u>Unite -buffer-name=files -start-insert file_rec<CR>
 " [b]uffergator
 nnoremap <leader>b :BuffergatorOpen<CR>
 " Close all but current [B]uffer
@@ -198,9 +195,6 @@ noremap <Leader>R ma:%s/[“”]/"/eg<CR>:%s/’/'/eg<CR>`a
 noremap <Leader>s :write<CR>
 " Show ou[t]line
 nnoremap <leader>t :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
-" Open most recently [u]sed files.
-call unite#custom#source('file_mru', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
-noremap <leader>u :<C-u>Unite file_mru<CR>
 " [y]ank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
