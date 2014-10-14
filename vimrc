@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'bogado/file-line'
 NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'wincent/command-t'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -285,5 +286,8 @@ set lines=999 columns=9999
 
 " 0 goes to beginning of line where text begins
 map 0 ^
+
+" Command-t is Ctrl-t
+nnoremap <C-T> :CommandT <CR>
 
 NeoBundleCheck
