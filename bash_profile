@@ -21,4 +21,4 @@ alias migrate='bundle exec rake db:migrate && bundle exec rake db:test:load'
 
 alias swift='xcrun swift'
 
-alias figr='fig run --rm web'
+alias dclean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q | grep -v 1f46ddec1e3e); docker rmi $(docker images -q -f  dangling=true | grep -v e72ac664f4f0)'
