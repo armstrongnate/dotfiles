@@ -1,7 +1,5 @@
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-export PATH="$PATH:/usr/local/share/npm/lib/node_modules/batman"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Dockerize
 $(boot2docker shellinit)
