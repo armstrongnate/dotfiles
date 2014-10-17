@@ -21,4 +21,13 @@ alias migrate='bundle exec rake db:migrate && bundle exec rake db:test:load'
 
 alias swift='xcrun swift'
 
-alias dclean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q | grep -v 1f46ddec1e3e); docker rmi $(docker images -q -f  dangling=true | grep -v e72ac664f4f0)'
+# docker clean
+dclean() {
+  # Kill all running containers
+  docker ps --quiet | xargs docker kill
+  # Remove all stopped containers except busybox
+  data_container_id=`docker inspect --format={{.Id}} /db_data`
+  docker ps --all --quiet --no-trunc | grep -v $data_container_id | xargs docker rm
+  # Remove all untagged images
+  docker images --quiet --filter "dangling=true" | xargs docker rmi
+}
