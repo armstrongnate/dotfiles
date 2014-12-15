@@ -30,6 +30,7 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'bogado/file-line'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'wincent/command-t'
+NeoBundle 'digitaltoad/vim-jade'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -106,6 +107,7 @@ set background=dark
 colorscheme Tomorrow-Night
 set linespace=1
 set t_Co=256
+set cursorline
 
 " Color Customizations
 syntax on
