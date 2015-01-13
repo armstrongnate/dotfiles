@@ -274,6 +274,7 @@ set gfn=Meslo\ LG\ M\ Regular:h12
 
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
+command! Sroutes :split config/routes.rb
 command! Eschema :e db/schema.rb
 
 " Show line numbers
