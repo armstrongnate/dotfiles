@@ -270,7 +270,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Font
-set gfn=Meslo\ LG\ M\ Regular:h12
+set gfn=Inconsolata-dz:h12
 
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
