@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Example file: ./2015/q3/september/week1.txt
+
+cd ~/Dropbox/documents/journal
+
+# year
+year=`date +%Y`
+
+# quarter
+month=`date +%-m`
+quarter="q"`awk -v var="$month" 'BEGIN { rounded = sprintf("%.0f", var/3.0); print rounded }'`
+
+# month (lowercase)
+monthName=`date +%B | awk '{print tolower($0)}'`
+
+# week
+day=`date +%-d`
+week="week"`awk -v var="$day" 'BEGIN { rounded = sprintf("%.0f", var/4.0); print rounded }'`
+
+dir=$year"/"$quarter"/"$monthName"/"
+file=$dir"/"$week".txt"
+
+if [ ! -d $dir ]; then
+  mkdir -p $dir
+fi
+
+timestamp=`date "+%a %d - (%-l:%M %p)"`
+
+if [ ! -f $file ]
+  then
+    touch $file
+    echo $timestamp>>$file
+  else
+    echo "\n\n"$timestamp>>$file
+fi
+
+`mvim $file`
