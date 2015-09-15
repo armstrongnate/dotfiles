@@ -18,7 +18,7 @@ monthName=`date +%B | awk '{print tolower($0)}'`
 day=`date +%-d`
 week="week"`awk -v var="$day" 'BEGIN { rounded = sprintf("%.0f", var/4.0); print rounded }'`
 
-dir=$year"/"$quarter"/"$monthName"/"
+dir=$year"/"$quarter"/"$monthName
 file=$dir"/"$week".txt"
 
 if [ ! -d $dir ]; then
