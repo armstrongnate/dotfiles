@@ -16,8 +16,8 @@
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/nate/.gitignore
-
 [alias]
+  last = "!bash -c 'git log -1 | cat'"
   push-gerrit = "!/bin/sh -c ' \
                     local_ref=$(git symbolic-ref HEAD); \
                     local_name=${local_ref##refs/heads/}; \
