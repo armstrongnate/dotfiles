@@ -9,7 +9,7 @@ year=`date +%Y`
 
 # quarter
 month=`date +%-m`
-quarter="q"`awk -v var="$month" 'BEGIN { rounded = sprintf("%.0f", var/3.0); print rounded }'`
+quarter="q"`python -c "from math import ceil; print int(ceil($month/3.0))"`
 
 # month (lowercase)
 monthName=`date +%B | awk '{print tolower($0)}'`
