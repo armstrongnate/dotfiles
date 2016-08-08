@@ -28,6 +28,10 @@ alias dm='docker-machine'
 
 alias so='socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"'
 
+# Carthage
+alias cartout='carthage checkout --no-use-binaries --use-ssh'
+alias cartup='carthage update --no-build --no-use-binaries'
+
 # docker clean
 dclean() {
   # Kill all running containers
