@@ -1,5 +1,9 @@
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Dockerize
 ### $(boot2docker shellinit)
@@ -49,7 +53,6 @@ fbuild() {
   fig build
   fig run --rm web rake db:migrate
 }
-
 
 ##
 # Your previous /Users/nate/.bash_profile file was backed up as /Users/nate/.bash_profile.macports-saved_2014-10-29_at_13:46:19
