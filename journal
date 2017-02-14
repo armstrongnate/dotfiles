@@ -25,7 +25,7 @@ if [ ! -d $dir ]; then
   mkdir -p $dir
 fi
 
-timestamp=`date "+%a %d - (%-l:%M %p)"`
+timestamp=`date "+%a %b %d - (%-l:%M %p)"`
 
 if [ ! -f $file ]
   then
