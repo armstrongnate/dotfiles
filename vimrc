@@ -66,7 +66,7 @@ NeoBundle 'gfontenot/vim-xcode'
 call neobundle#end()
 
 " Toggle NERDTree
-nnoremap <C-O> :NERDTreeToggle <CR>
+nnoremap <D-0> :NERDTreeToggle <CR>
 
 " Linux never crashes. :)
 set noswapfile
