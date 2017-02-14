@@ -306,4 +306,7 @@ map 0 ^
 " Command-t is Ctrl-t
 nnoremap <C-T> :CommandT <CR>
 
+" Interactive bash
+set shellcmdflag=-ic
+
 NeoBundleCheck
