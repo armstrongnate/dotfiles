@@ -50,6 +50,8 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
+NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 " Unite
 NeoBundle 'Shougo/unite-outline'
@@ -57,6 +59,9 @@ NeoBundle 'Shougo/unite.vim'
 
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
+
+" Xcode
+NeoBundle 'gfontenot/vim-xcode'
 
 call neobundle#end()
 
@@ -80,6 +85,7 @@ filetype plugin on
 autocmd FileType make setlocal noexpandtab
 " Special ruby files
 autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
+autocmd BufRead,BufNewFile Fastfile set filetype=ruby
 autocmd BufRead,BufNewFile *.rabl set filetype=ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 " Don't assume the line after a comment is still a comment
@@ -100,6 +106,13 @@ set softtabstop=2
 set shiftwidth=2
 retab
 set expandtab
+
+" 4 spaces for iOS indentation
+autocmd BufRead *.swift set ts=4 et sw=4 sts=4
+autocmd BufRead *.h set ts=4 et sw=4 sts=4
+autocmd BufRead *.m set ts=4 et sw=4 sts=4
+autocmd BufRead *.cpp set ts=4 et sw=4 sts=4
+autocmd BufRead *.c set ts=4 et sw=4 sts=4
 
 " Colors
 syntax enable
