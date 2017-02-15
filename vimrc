@@ -51,7 +51,8 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
-NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " Unite
 NeoBundle 'Shougo/unite-outline'
@@ -97,6 +98,8 @@ autocmd FileType php set sw=2
 " Remove fugitive buffers (from browsing git objects)
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
+" JSX syntax in .js files
+let g:jsx_ext_required = 0
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
