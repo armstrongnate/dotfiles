@@ -53,6 +53,7 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'nelstrom/vim-markdown-folding'
 
 " Unite
 NeoBundle 'Shougo/unite-outline'
@@ -66,17 +67,19 @@ NeoBundle 'gfontenot/vim-xcode'
 
 call neobundle#end()
 
+" Set Leader
+" \ is too far away!
+let mapleader = "'"
+
 " Toggle NERDTree
 nnoremap <D-0> :NERDTreeToggle <CR>
+nnoremap <Leader>o :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
 
 " Linux never crashes. :)
 set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
-
-" Set Leader
-" \ is too far away!
-let mapleader = "'"
 
 " FileTypes
 filetype on
@@ -92,6 +95,7 @@ autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
+autocmd FileType javascript setlocal formatoptions-=cro
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
@@ -99,7 +103,9 @@ autocmd FileType php set sw=2
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " JSX syntax in .js files
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
+" Enable syntax highlighting for Flow
+let g:javascript_plugin_flow = 1
 
 " Tabs and indentation
 " Default to 2 spaces (ruby FTW)
@@ -209,7 +215,7 @@ noremap <Leader>m ma:s/, \?/,<c-v><CR>/g<CR>j=`a
 " Edit [N]otes file
 noremap <Leader>n :e notes.md<CR>
 " [O]rganize alphabetically (sort)
-noremap <Leader>o :sort<CR>
+" noremap <Leader>o :sort<CR>
 " [Q]uit
 noremap <Leader>q :quit<CR>
 " [R]emove smart quotes (and friends).
@@ -301,7 +307,7 @@ set guioptions-=L
 set guioptions-=r
 
 " Full window
-set lines=999 columns=9999
+" set lines=999 columns=9999
 
 " 0 goes to beginning of line where text begins
 map 0 ^
@@ -309,7 +315,7 @@ map 0 ^
 " Command-t is Ctrl-t
 nnoremap <C-T> :CommandT <CR>
 
-" Interactive bash
-set shellcmdflag=-ic
+" put new vsplit buff on on the right
+set splitright
 
 NeoBundleCheck
