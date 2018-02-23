@@ -102,8 +102,7 @@ autocmd FileType php set sw=2
 " Remove fugitive buffers (from browsing git objects)
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database
 autocmd BufReadPost fugitive://* set bufhidden=delete
-" JSX syntax in .js files
-let g:jsx_ext_required = 1
+
 " Enable syntax highlighting for Flow
 let g:javascript_plugin_flow = 1
 
@@ -153,6 +152,9 @@ highlight SpellLocal term=underline cterm=underline
 
 " Highlight 81st column to discourage long lines.
 set colorcolumn=81
+
+" Case insensitive filename completion
+set wildignorecase
 
 " Remember last location in file
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
