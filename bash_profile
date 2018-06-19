@@ -1,17 +1,11 @@
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+# export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
+
+export JAVA_HOME=$(/usr/libexec/java_home -v '1.8*')
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-### Dockerize
-### $(boot2docker shellinit)
-### eval "$(docker-machine env dev)"
-export DOCKER_HOST="192.168.64.2:2375"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ### add colors to terminal
 export CLICOLOR=1
@@ -29,6 +23,9 @@ alias swift='xcrun swift'
 
 alias dc='docker-compose'
 alias dm='docker-machine'
+alias dcu='docker-compose up'
+alias dcr='docker-compose run --rm web'
+alias dcrx='docker-compose run --rm web bundle exec'
 
 alias so='socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"'
 
@@ -46,19 +43,3 @@ dclean() {
   # Remove all untagged images
   docker images --quiet --filter "dangling=true" | xargs docker rmi
 }
-
-# fig- bundle, build, migrate
-fbuild() {
-  fig run --rm web bundle
-  fig build
-  fig run --rm web rake db:migrate
-}
-
-##
-# Your previous /Users/nate/.bash_profile file was backed up as /Users/nate/.bash_profile.macports-saved_2014-10-29_at_13:46:19
-##
-
-# MacPorts Installer addition on 2014-10-29_at_13:46:19: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
