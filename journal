@@ -35,4 +35,4 @@ if [ ! -f $file ]
     echo "\n\n"$timestamp>>$file
 fi
 
-`mvim $file`
+`mvim $file &`
