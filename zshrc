@@ -4,16 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/narmstrong/.oh-my-zsh
 
-# Dockerize
-eval $(docker-machine env dinghy)
-alias dc='docker-compose'
-alias dm='docker-machine'
-alias dcu='docker-compose up'
-alias dcr='docker-compose run --rm web'
-alias dcrx='docker-compose run --rm web bundle exec'
-
-# Start canvas without webpack or jobs
-alias dc-canvas='docker-compose up web redis postgres'
+# Path to nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,6 +98,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Docker
+# eval $(docker-machine env dinghy)
+alias dc='docker-compose'
+alias dm='docker-machine'
+alias dcu='docker-compose up'
+alias dcr='docker-compose run --rm web'
+alias dcrx='docker-compose run --rm web bundle exec'
+# Start canvas without webpack or jobs
+alias dc-canvas='docker-compose up web redis postgres'
+
+# todo.txt
+alias t="todo.sh -d ~/icloud/todo/config"
+alias inbox="t addto inbox.txt"
