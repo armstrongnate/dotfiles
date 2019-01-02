@@ -42,6 +42,7 @@ NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'nelstrom/vim-markdown-folding'
+NeoBundle 'armstrongnate/todo.txt-vim'
 
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
@@ -51,6 +52,7 @@ call neobundle#end()
 " Set Leader
 " \ is too far away!
 let mapleader = "'"
+let maplocalleader = "'"
 
 " Toggle NERDTree
 nnoremap <D-0> :NERDTreeToggle <CR>
