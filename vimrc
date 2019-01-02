@@ -60,6 +60,9 @@ let NERDTreeShowHidden = 1
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
 
+" Never .swp
+set noswapfile
+
 " FileTypes
 filetype on
 filetype indent on
@@ -178,6 +181,8 @@ nnoremap <leader>B :1,999bd<CR><C-^>
 " Open file in current [d]irectory
 " http://vimcasts.org/episodes/the-edit-command
 map <leader>d :e %:p:h/
+" Insert the current [D]ate
+nnoremap <Leader>D "=strftime("%a %b %d %Y")<CR>P
 " [E]dit
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
@@ -207,6 +212,8 @@ let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
 " E[x]it current Buffer
 noremap <Leader>x :bd<CR>
+" Change working directory to the file being edited
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -232,7 +239,11 @@ let g:surround_118 = "\"#{\r}\""
 let g:ruby_hanging_indent = 0
 
 " Configure vim-markdown
-let g:markdown_fenced_languages = ['ruby', 'javascript']
+let g:markdown_fenced_languages = ['html', 'ruby', 'javascript', 'jsx', 'css']
+
+" Configure vim-markdown-folding
+let g:markdown_fold_style = 'nested'
+set foldlevel=99
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
@@ -272,5 +283,8 @@ nnoremap <C-T> :CommandT <CR>
 
 " put new vsplit buff on on the right
 set splitright
+
+" auto read changes from disk
+set autoread
 
 NeoBundleCheck
