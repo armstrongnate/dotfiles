@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/narmstrong/.oh-my-zsh
+export ZSH=/Users/nate/.oh-my-zsh
+
+export TERM=xterm-256color-italic
 
 # Path to nvm
 export NVM_DIR="$HOME/.nvm"
