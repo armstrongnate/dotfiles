@@ -46,14 +46,13 @@ NeoBundle 'kchmck/vim-coffee-script'
 " NeoBundle 'php.vim-html-enhanced'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
-NeoBundle 'nelstrom/vim-markdown-folding'
 NeoBundle 'armstrongnate/todo.txt-vim'
 
 " Unite
@@ -71,7 +70,6 @@ call neobundle#end()
 " Set Leader
 " \ is too far away!
 let mapleader = "'"
-let maplocalleader = "'"
 
 " Toggle NERDTree
 nnoremap <D-0> :NERDTreeToggle <CR>
@@ -98,6 +96,7 @@ autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
 autocmd FileType javascript setlocal formatoptions-=cro
+autocmd FileType markdown setlocal formatoptions-=cro
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
@@ -181,10 +180,6 @@ nnoremap <space> :exec "normal i".nr2char(getchar())."\e"<CR>
 vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 
-" Enable undo for CTRL-u and backspace
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
-
 " Use motion commands to leave insert mode
 " http://weblog.jamisbuck.org/2008/10/10/coming-home-to-vim
 imap jk <esc>
@@ -198,9 +193,8 @@ ab pa params
 nnoremap <leader>b :BuffergatorOpen<CR>
 " Close all but current [B]uffer
 nnoremap <leader>B :1,999bd<CR><C-^>
-" Open file in current [d]irectory
-" http://vimcasts.org/episodes/the-edit-command
-map <leader>d :e %:p:h/
+" [cd] to the current directory
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
 " [E]dit
 noremap <Leader>e :e<Space>
 " [F]lip to alternate buffers
@@ -296,7 +290,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Font
-set gfn=Inconsolata-dz:h13
+set gfn=Meno:h13
 
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
@@ -321,5 +315,9 @@ nnoremap <C-T> :CommandT <CR>
 
 " put new vsplit buff on on the right
 set splitright
+
+" Configure vim-markdown
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 NeoBundleCheck
