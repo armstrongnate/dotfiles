@@ -32,22 +32,10 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'wincent/command-t'
 NeoBundle 'digitaltoad/vim-jade'
 
-" Text objects
-NeoBundle 'Julian/vim-textobj-variable-segment'
-NeoBundle 'glts/vim-textobj-comment'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-
 " Languages/frameworks
-NeoBundle 'kchmck/vim-coffee-script'
-" NeoBundle 'php.vim'
-" NeoBundle 'php.vim-html-enhanced'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
@@ -55,15 +43,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'nelstrom/vim-markdown-folding'
 
-" Unite
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
-
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
-
-" Xcode
-NeoBundle 'gfontenot/vim-xcode'
 
 call neobundle#end()
 
@@ -76,8 +57,6 @@ nnoremap <D-0> :NERDTreeToggle <CR>
 nnoremap <Leader>o :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 
-" Linux never crashes. :)
-set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
 
@@ -207,9 +186,6 @@ noremap <Leader>f :e #<CR>
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
-" Change string to a symbol (like ruby's [i]ntern method)
-nnoremap <Leader>i 2f'xF'xi:<ESC>
-nnoremap <Leader>I 2f"xF"xi:<ESC>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " [M]ulti-line an array or hash
@@ -258,34 +234,13 @@ let g:ruby_hanging_indent = 0
 " Configure vim-markdown
 let g:markdown_fenced_languages = ['ruby', 'javascript']
 
-" Configure vim-buffergator
-let g:buffergator_suppress_keymaps = 1
-let g:buffergator_sort_regime = 'mru'
-
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
-
-" Configure unite
-" http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-endfunction
-
-" Unite <3 Rails
-command Umodel Unite -start-insert file_rec:app/models
-command Uview Unite -start-insert file_rec:app/views
-command Ucontroller Unite -start-insert file_rec:app/controllers
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
-
-" Turn on syntax completion.
-set completefunc=syntaxcomplete#Complete
 
 " Configure panel navigation
 nnoremap <C-J> <C-W><C-J>
@@ -299,6 +254,7 @@ set gfn=Inconsolata-dz:h13
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
 command! Sroutes :split config/routes.rb
+command! Vroutes :vsplit config/routes.rb
 command! Eschema :e db/schema.rb
 
 " Show line numbers
@@ -307,9 +263,6 @@ set number
 " Hide scrollbars
 set guioptions-=L
 set guioptions-=r
-
-" Full window
-" set lines=999 columns=9999
 
 " 0 goes to beginning of line where text begins
 map 0 ^
