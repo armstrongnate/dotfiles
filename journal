@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Example file: ./2015/q3/september/week1.md
+# Example file: JOURNAL_DIR/2015/q3/september/week1.md
 
-cd ${1}
+cd $JOURNAL_DIR
 
 # year
 year=`date +%Y`
@@ -35,5 +35,5 @@ if [ ! -f $file ]
     echo "\n\n"## $timestamp>>$file
 fi
 
-mvim $file
+$EDITOR $file
 exit 0
