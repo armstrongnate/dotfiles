@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Example file: ./2015/q3/september/week1.txt
+# Example file: JOURNAL_DIR/2015/q3/september/week1.md
 
-cd ~/Dropbox/documents/journal
+cd $JOURNAL_DIR
 
 # year
 year=`date +%Y`
@@ -16,10 +16,10 @@ monthName=`date +%B | awk '{print tolower($0)}'`
 
 # week
 day=`date +%-d`
-week="week"`python -c "from math import ceil; print int(ceil($day/7.0))"`
+week=`python -c "from math import ceil; print int(ceil($day/7.0))"`
 
 dir=$year"/"$quarter"/"$monthName
-file=$dir"/"$week".txt"
+file=$dir"/"week$week".md"
 
 if [ ! -d $dir ]; then
   mkdir -p $dir
@@ -30,9 +30,10 @@ timestamp=`date "+%a %b %d - (%-l:%M %p)"`
 if [ ! -f $file ]
   then
     touch $file
-    echo $timestamp>>$file
+    echo "## $timestamp">>$file
   else
-    echo "\n\n"$timestamp>>$file
+    echo "\n\n"## $timestamp>>$file
 fi
 
-`mvim $file &`
+$EDITOR $file
+exit 0

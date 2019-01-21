@@ -33,22 +33,10 @@ NeoBundle 'wincent/command-t'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'armstrongnate/vim-journal'
 
-" Text objects
-NeoBundle 'Julian/vim-textobj-variable-segment'
-NeoBundle 'glts/vim-textobj-comment'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-
 " Languages/frameworks
-NeoBundle 'kchmck/vim-coffee-script'
-" NeoBundle 'php.vim'
-" NeoBundle 'php.vim-html-enhanced'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'apple/swift', { 'rtp' : 'utils/vim' }
@@ -56,15 +44,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'armstrongnate/todo.txt-vim'
 
-" Unite
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
-
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
-
-" Xcode
-NeoBundle 'gfontenot/vim-xcode'
 
 call neobundle#end()
 
@@ -77,10 +58,11 @@ nnoremap <D-0> :NERDTreeToggle <CR>
 nnoremap <Leader>o :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 
-" Linux never crashes. :)
-set noswapfile
 " Autosave when changing buffers (the warnings get annoying)
 set autowriteall
+
+" Never .swp
+set noswapfile
 
 " FileTypes
 filetype on
@@ -194,6 +176,11 @@ ab pa params
 nnoremap <leader>b :BuffergatorOpen<CR>
 " Close all but current [B]uffer
 nnoremap <leader>B :1,999bd<CR><C-^>
+" Open file in current [d]irectory
+" http://vimcasts.org/episodes/the-edit-command
+map <leader>d :e %:p:h/
+" Insert the current [D]ate
+nnoremap <Leader>D "=strftime("%a %b %d %Y")<CR>P
 " [cd] to the current directory
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
 " [E]dit
@@ -204,9 +191,6 @@ noremap <Leader>f :e #<CR>
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
-" Change string to a symbol (like ruby's [i]ntern method)
-nnoremap <Leader>i 2f'xF'xi:<ESC>
-nnoremap <Leader>I 2f"xF"xi:<ESC>
 " Convert a three line tag or block to one line. (an overpowered [J])
 noremap <Leader>j maJxJx`a
 " [M]ulti-line an array or hash
@@ -226,6 +210,8 @@ nnoremap <leader>t :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
 " [y]ank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
+" Change working directory to the file being edited
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -250,37 +236,17 @@ let g:surround_118 = "\"#{\r}\""
 " https://github.com/vim-ruby/vim-ruby
 let g:ruby_hanging_indent = 0
 
-" Configure vim-markdown
-let g:markdown_fenced_languages = ['ruby', 'javascript']
-
-" Configure vim-buffergator
-let g:buffergator_suppress_keymaps = 1
-let g:buffergator_sort_regime = 'mru'
+" Configure vim-markdown-folding
+let g:markdown_fold_style = 'nested'
+set foldlevel=99
 
 " Extend fugitive
 cmap Gwc :Git whatchanged -p --abbrev-commit --pretty=medium %
-
-" Configure unite
-" http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-endfunction
-
-" Unite <3 Rails
-command Umodel Unite -start-insert file_rec:app/models
-command Uview Unite -start-insert file_rec:app/views
-command Ucontroller Unite -start-insert file_rec:app/controllers
 
 " Load customizations for local machine.
 if filereadable(expand("$HOME/.vimrc_local"))
   source $HOME/.vimrc_local
 endif
-
-" Turn on syntax completion.
-set completefunc=syntaxcomplete#Complete
 
 " Configure panel navigation
 nnoremap <C-J> <C-W><C-J>
@@ -294,6 +260,7 @@ set gfn=Meno:h13
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
 command! Sroutes :split config/routes.rb
+command! Vroutes :vsplit config/routes.rb
 command! Eschema :e db/schema.rb
 
 " Show line numbers
@@ -303,9 +270,6 @@ set number
 set guioptions-=L
 set guioptions-=r
 
-" Full window
-" set lines=999 columns=9999
-
 " 0 goes to beginning of line where text begins
 map 0 ^
 
@@ -314,6 +278,9 @@ nnoremap <C-T> :CommandT <CR>
 
 " put new vsplit buff on on the right
 set splitright
+
+" auto read changes from disk
+set autoread
 
 " Configure vim-markdown
 let g:vim_markdown_folding_level = 1
