@@ -31,6 +31,7 @@ NeoBundle 'bogado/file-line'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'wincent/command-t'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'armstrongnate/vim-journal'
 
 " Text objects
 NeoBundle 'Julian/vim-textobj-variable-segment'
@@ -225,8 +226,6 @@ nnoremap <leader>t :<C-u>Unite -buffer-name=outline -start-insert outline<CR>
 " [y]ank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
-" E[x]it current Buffer
-noremap <Leader>x :bd<CR>
 
 " Configure surround
 " https://github.com/tpope/vim-surround
@@ -319,5 +318,13 @@ set splitright
 " Configure vim-markdown
 let g:vim_markdown_folding_level = 1
 let g:vim_markdown_new_list_item_indent = 0
+
+" vim-journal
+" Move todo down to next day
+map <leader>> yy0r>Gp<C-o>
+" Mark row as complete
+map <leader>x 0rx
+" Prioritize task
+map <leader>p 0r+
 
 NeoBundleCheck
