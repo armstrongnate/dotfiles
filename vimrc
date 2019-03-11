@@ -32,6 +32,7 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'wincent/command-t'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'armstrongnate/vim-journal'
+NeoBundle 'vimwiki/vimwiki'
 
 " Languages/frameworks
 NeoBundle 'othree/html5.vim'
@@ -293,5 +294,8 @@ map <leader>> yy0r>Gp<C-o>
 map <leader>x 0rx
 " Prioritize task
 map <leader>p 0r+
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 NeoBundleCheck
