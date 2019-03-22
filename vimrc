@@ -32,7 +32,8 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'wincent/command-t'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'armstrongnate/vim-journal'
-NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'vimwiki/vimwiki', 'dev'
+NeoBundle 'morhetz/gruvbox'
 
 " Languages/frameworks
 NeoBundle 'othree/html5.vim'
@@ -110,10 +111,10 @@ autocmd BufRead *.c set ts=4 et sw=4 sts=4
 " Colors
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme gruvbox
 set linespace=1
-set t_Co=256
-set cursorline
+" set t_Co=256
+" set cursorline
 
 " Color Customizations
 syntax on
@@ -136,7 +137,7 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 " Highlight 81st column to discourage long lines.
-set colorcolumn=81
+" set colorcolumn=81
 
 " Case insensitive filename completion
 set wildignorecase
@@ -239,6 +240,8 @@ let g:ruby_hanging_indent = 0
 
 " Configure vim-markdown-folding
 let g:markdown_fold_style = 'nested'
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 set foldlevel=99
 
 " Extend fugitive
@@ -256,7 +259,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Font
-set gfn=Meno:h13
+" set gfn=Meno:h13
 
 " Edit routes and schema
 command! Eroutes :e config/routes.rb
@@ -296,6 +299,17 @@ map <leader>x 0rx
 map <leader>p 0r+
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let wiki = {}
+let wiki.path = '~/vimwiki'
+let wiki.syntax = 'markdown'
+let wiki.nested_syntaxes = {'swift': 'swift', 'javascript': 'javascript', 'ruby': 'ruby'}
+let wiki.ext = '.md'
+let wiki.automatic_nested_syntaxes = 1
+let g:vimwiki_list = [wiki]
+let g:vimwiki_markdown_link_ext = 1
+
+" omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 NeoBundleCheck
