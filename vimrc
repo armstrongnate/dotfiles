@@ -114,7 +114,7 @@ set background=dark
 colorscheme gruvbox
 set linespace=1
 " set t_Co=256
-" set cursorline
+set cursorline
 
 " Color Customizations
 syntax on
@@ -137,7 +137,7 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 " Highlight 81st column to discourage long lines.
-" set colorcolumn=81
+set colorcolumn=81
 
 " Case insensitive filename completion
 set wildignorecase
