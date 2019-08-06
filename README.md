@@ -21,7 +21,7 @@ cp -r colors ~/.vim/
 Install fonts in [fonts](fonts/).
 
 
-# iTerm
+## iTerm
 Install italics ([source](https://gist.github.com/sos4nt/3187620)]
 ```
 tic xterm-256color-italic.terminfo
