@@ -11,6 +11,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vimwiki/vimwiki', 'dev'
 Plug 'tpope/vim-fugitive'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -112,8 +114,23 @@ autocmd FileType markdown setlocal formatoptions-=cro
 " 4 spaces for python indentation
 autocmd BufRead *.py set ts=4 et sw=4 sts=4
 autocmd FileType php set sw=2
+" js gets confused
+autocmd BufRead *.js set ts=2 et sw=2 sts=2
 
 " Git Grep (G[g]rep) the selection
 vnoremap <Leader>g y:Ggrep '<C-r>"'<CR>
 " Git Grep (G[g]rep) the word under the cursor
 nnoremap <Leader>g :Ggrep <C-r><C-w><CR>
+
+" Never .swp
+set noswapfile
+
+" vim-javascript
+let g:javascript_plugin_flow = 1
+
+" Always display status line
+set laststatus=2
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
