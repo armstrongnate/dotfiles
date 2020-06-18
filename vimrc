@@ -9,9 +9,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'vimwiki/vimwiki', 'dev'
 Plug 'tpope/vim-fugitive'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 
 call plug#end()
@@ -38,6 +37,9 @@ colorscheme gruvbox
 set linespace=1
 set cursorline
 
+" Font
+set guifont=Inconsolata-dz:h15
+
 " Show line numbers
 set number
 
@@ -46,17 +48,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 " Ignore the following
 set wildignore+=.git,*.jpg,*.png,*.zip,*.tar.gz,.DS_Store,tmp/**
-
-" vimwiki
-let wiki = {}
-let wiki.path = '~/icloud/wiki'
-let wiki.syntax = 'markdown'
-let wiki.nested_syntaxes = {'swift': 'swift', 'javascript': 'javascript', 'ruby': 'ruby'}
-let wiki.ext = '.md'
-let wiki.automatic_nested_syntaxes = 1
-let g:vimwiki_folding = 'expr'
-let g:vimwiki_list = [wiki]
-let g:vimwiki_markdown_link_ext = 1
 
 " omni completion
 filetype plugin on
@@ -106,6 +97,7 @@ autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 autocmd BufRead,BufNewFile Fastfile set filetype=ruby
 autocmd BufRead,BufNewFile *.rabl set filetype=ruby
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
+autocmd BufRead,BufNewFile *Podfile set filetype=ruby
 " Don't assume the line after a comment is still a comment
 autocmd FileType ruby setlocal formatoptions-=cro
 autocmd FileType yaml setlocal formatoptions-=cro
@@ -128,9 +120,15 @@ set noswapfile
 " vim-javascript
 let g:javascript_plugin_flow = 1
 
+" vim-jsx-pretty
+let g:vim_jsx_pretty_colorful_config = 1
+
 " Always display status line
 set laststatus=2
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Quick shell
+nnoremap <Leader>s :shell <CR>
