@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# zsh
+echo Setting up zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp zshrc ~/.zshrc
+
+# git
+echo Setting up git
+cp gitignore ~/.gitignore
+cp gitconfig ~/.gitconfig
+
+# fonts
+echo Setting up fonts
+cp fonts/* ~/Library/Fonts/
+
+# vim
+echo Setting up vim
+cp vimrc ~/.vimrc
+mkdir -p ~/.vim
+cp -r colors ~/.vim
+vim +PlugInstall +qall
+
+# iterm
+echo Setting up iTerm
+tic iterm/xterm-256color-italic.terminfo
+
+# journal
+echo Setting up journal
+sudo cp journal /usr/local/bin/
+read -ep 'iCloud directory: ' icloud
+cd ~/
+ln -s "$icloud" "icloud"
