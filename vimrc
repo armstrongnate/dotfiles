@@ -12,6 +12,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -132,3 +133,10 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Quick shell
 nnoremap <Leader>s :shell <CR>
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" MacVim
+set lines=200
+set columns=200
