@@ -12,7 +12,7 @@ cp gitconfig ~/.gitconfig
 
 # fonts
 echo Setting up fonts
-cp fonts/* ~/Library/Fonts/
+cp fonts/* /Library/Fonts/
 
 # vim
 echo Setting up vim
