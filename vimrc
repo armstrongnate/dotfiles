@@ -39,7 +39,7 @@ set linespace=1
 set cursorline
 
 " Font
-set guifont=Inconsolata-dz:h15
+set guifont=Inconsolata-dz:h12
 
 " Show line numbers
 set number
