@@ -9,12 +9,26 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'preservim/nerdtree'
+Plug 'Yggdroot/indentLine'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
+
+" Autosave when changing buffers (the warnings get annoying)
+set autowriteall
+" Enable persistent undo
+if isdirectory($HOME.'/.vim/tmp/undo') == 0
+  call system('mkdir -p '.$HOME.'/.vim/tmp/undo')
+endif
+set undofile
+set undodir=$HOME/.vim/tmp/undo
 
 " Highlight 81st and 101st column to discourage long lines.
 set colorcolumn=81
@@ -138,5 +152,25 @@ nnoremap <Leader>s :shell <CR>
 map <C-n> :NERDTreeToggle<CR>
 
 " MacVim
-set lines=200
-set columns=200
+if has('gui_running')
+  set lines=200
+  set columns=200
+endif
+
+" ctrlp
+let g:ctrlp_match_window = 'results:100'
+
+" Edit existing file under cursor in vertically split window
+nnoremap <C-W><C-F> <C-W>vgf
+
+" Create and edit file under cursor
+noremap <leader>gf :e <cfile><cr>
+
+" Configure markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_folding = 1
+let g:markdown_fenced_languages = ['ruby', 'sh', 'bash=sh', 'javascript', 'sql']
+
+" vim-ruby
+let g:ruby_fold = 1
+let g:ruby_foldable_groups = 'class module def if'
