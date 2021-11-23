@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# zsh
-echo Setting up zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp zshrc ~/.zshrc
-
 # homebrew
 echo Setting up homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -38,3 +33,9 @@ open https://macvim-dev.github.io/macvim/
 # iterm
 echo Setting up iTerm
 tic iterm/xterm-256color-italic.terminfo
+
+# zsh
+echo Setting up zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp zshrc ~/.zshrc
+
