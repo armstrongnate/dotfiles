@@ -3,6 +3,7 @@
 # homebrew
 echo Setting up homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # git
 echo Setting up git
@@ -22,12 +23,11 @@ cp fonts/* /Library/Fonts/
 
 # vim
 echo Setting up vim
-brew install vim
+brew install macvim
 cp vimrc ~/.vimrc
 mkdir -p ~/.vim
 cp -r colors ~/.vim
 vim +PlugInstall +qall
-brew install macvim
 
 # iterm
 echo Setting up iTerm
@@ -37,4 +37,5 @@ tic iterm/xterm-256color-italic.terminfo
 echo Setting up zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp zshrc ~/.zshrc
+source ~/.zshrc
 
