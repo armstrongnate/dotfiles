@@ -18,6 +18,19 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export GEM_HOME="$HOME/.gem"
 export PATH="$GEM_HOME/bin:$PATH"
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Go
+export GOPATH="$HOME/.go"
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# Custom Go Config
+export GOPRIVATE=bitbucket.org/tendosystems/*,bitbucket.org/nate_tendo/*
+
+# NPM
+export NPM_CONFIG_PREFIX="$HOME/.npm-packages"
+
 # rbenv
 # eval "$(rbenv init -)"
 # export PATH="$HOME/.rbenv/bin:$PATH"
