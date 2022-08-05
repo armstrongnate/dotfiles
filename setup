@@ -39,3 +39,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 cp zshrc ~/.zshrc
 source ~/.zshrc
 
+# iOS
+# gems have to come after source zshrc
+echo Installing cocoapods
+gem install cocoapods
