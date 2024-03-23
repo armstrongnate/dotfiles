@@ -14,6 +14,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# NPM
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
 # Ruby gems
 export GEM_HOME="$HOME/.gem"
 export PATH="$GEM_HOME/bin:$PATH"
@@ -32,8 +35,11 @@ export GOPRIVATE=bitbucket.org/tendosystems/*,bitbucket.org/nate_tendo/*
 export NPM_CONFIG_PREFIX="$HOME/.npm-packages"
 
 # rbenv
-# eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# Needed for rails postgres
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
