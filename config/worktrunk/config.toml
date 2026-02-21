@@ -1,0 +1,9 @@
+[post-start]
+copy = "wt step copy-ignored"
+
+[post-create]
+install = "pnpm i"
+tmux = "tmux new-session -s {{ branch | sanitize }} -d"
+
+[post-remove]
+tmux = "tmux kill-session -t {{ branch | sanitize }}"
