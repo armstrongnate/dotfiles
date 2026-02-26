@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+branch="$1"
+prompt="$2"
+
+if [[ -z "$branch" || -z "$prompt" ]]; then
+  echo "Usage: wt-claude <branch-name> <prompt>"
+  exit 1
+fi
+
+wt switch --create "$branch"
+
+# Verify the worktree was actually created
+repo_dir="$(pwd)"
+worktree_dir="${repo_dir}.${branch}"
+if [[ ! -d "$worktree_dir" ]]; then
+  echo "Worktree not found at $worktree_dir — wt switch may have failed"
+  exit 1
+fi
+
+# Run the copy hook in the worktree context
+wt hook post-start copy -y -C "$worktree_dir"
+
+# Wait for worktrunk hook to create the tmux session
+attempts=0
+until tmux has-session -t "$branch" 2>/dev/null; do
+  sleep 0.5
+  (( attempts++ ))
+  if (( attempts >= 10 )); then
+    echo "Timed out waiting for tmux session '$branch'"
+    exit 1
+  fi
+done
+
+tmux send-keys -t "$branch" "claude --permission-mode plan '$prompt'" Enter
+echo "Session ready — run: tmux a -t $branch"
