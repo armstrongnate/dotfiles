@@ -1,0 +1,71 @@
+{
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "medium",
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:sdk.vercel.ai)",
+      "WebFetch(domain:ai-sdk.dev)",
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:biome.sh)",
+      "WebFetch(domain:orm.drizzle.team)",
+      "WebFetch(domain:zod.dev)",
+      "WebFetch(domain:vitest.dev)",
+
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(echo:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(env:*)",
+      "Bash(date:*)",
+      "Bash(stat:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(diff:*)",
+      "Bash(jq:*)",
+      "Bash(awk:*)",
+      "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(ps:*)",
+      "Bash(lsof:*)",
+
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git fetch:*)",
+      "Bash(git remote:*)",
+      "Bash(git stash list:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+
+      "Bash(node:*)",
+      "Bash(tsx:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(biome:*)",
+      "Bash(drizzle-kit:*)",
+
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+
+      "Bash(curl:*)",
+      "Bash(gh:*)",
+
+      "Bash(wt:*)",
+      "Bash(python3:*)",
+      "Bash(open:*)"
+    ]
+  }
+}
