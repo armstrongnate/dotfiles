@@ -1,0 +1,6 @@
+.vscode
+.nvim.lua
+devbin
+.claude/settings.local.json
+.claude/commands/nate-*
+.config/wt.toml
